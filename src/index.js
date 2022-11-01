@@ -52,3 +52,9 @@ getBooksAndMoviesAsync().then(results=>console.log("movies and books", {
 getBooksOrMoviesAsync().then(results=>console.log("movies OR books", {
     results,
   }));
+
+const timer1 = setTimeout(()=>console.log("timer 1 has finished"), 3000);
+
+const timer2 = setTimeout(()=>{
+    console.log("timer 2 has finished");
+    clearTimeout(timer1)}, 2000);
