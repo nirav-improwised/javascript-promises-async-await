@@ -1,16 +1,14 @@
-import {fetchWithTimeout} from "./services"
-import { fetchMovies } from "./services";
-import { fetchBooks } from "./services";
+import {fetchWithTimeout, fetchMovies, fetchBooks} from "./services";
 
 const movies = require('./data/movies.json');
 
-function getBooksAndMovies(){
+const getBooksAndMovies = () => {
     return Promise.all([fetchBooks(), fetchMovies()])
             .then(([books, movies ]) => ({
                 books,
-                movies
+                movies,
             }))
-            .catch(error => console.log("Error fetching books and movies", error));
+            .catch(error => console.log('Error fetching books and movies', error));
 }
 
 const getBooksAndMoviesPromise = getBooksAndMovies();
@@ -25,4 +23,4 @@ function getBooksOrMovies(){
 
 const getBooksOrMoviesPromise = getBooksOrMovies();
 
-getBooksOrMoviesPromise.then(results=>console.log('getBooksOrMoviesPromise', results));
+getBooksOrMoviesPromise.then(results=>console.log('getBooksOrMoviesPromise', results)); 
